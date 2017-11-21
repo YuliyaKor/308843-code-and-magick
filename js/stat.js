@@ -15,7 +15,7 @@ window.renderStatistics = function (ctx, names, times) {
   var max = -1;
   var maxIndex = -1;
 
-  for (var i = 0 ; i < times.length; i++) {
+  for (var i = 0; i < times.length; i++) {
     var time = times[i];
     if (time > max) {
       max = time;
@@ -28,15 +28,15 @@ window.renderStatistics = function (ctx, names, times) {
 
   ctx.fillText('Худшее время: ' + max.toFixed(0) + ' мс у игрока ' + names[maxIndex], 120, 80);
   var initialX = 120;
-  var lineWidth =40;
+  var lineWidth = 40;
   var lineSpace = 50;
   var lineDistance = lineSpace + lineWidth;
   var textNamesY = 275;
   var textTimesY = 110;
   var heightworkspace = 260;
 
-  for(var i = 0; i < times.length; i++) {
-    if (names[i] === 'Вы'){
+  for (i = 0; i < times.length; i++) {
+    if (names[i] === 'Вы') {
       ctx.fillStyle = 'rgba(255, 0, 0, 1.0)';
     }
     else {
