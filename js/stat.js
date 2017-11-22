@@ -9,17 +9,15 @@ var getColor = function (condition) {
 };
 
 var getMaxItem = function (times) {
-var max = -1;
-var maxIndex = -1;
+  var max = -1;
 
-for (var i = 0; i < times.length; i++) {
-  var time = times[i];
-  if (time > max) {
-    max = time;
-    maxIndex = i;
+  for (var i = 0; i < times.length; i++) {
+    var time = times[i];
+    if (time > max) {
+      max = time;
+    }
   }
-}
-  return max;
+    return max;
 };
 
 window.renderStatistics = function (ctx, names, times) {
