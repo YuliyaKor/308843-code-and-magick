@@ -2,8 +2,7 @@
 var getColor = function (condition) {
   if (condition) {
     return 'rgba(255, 0, 0, 1.0)';
-  }
-  else {
+  } else {
     return 'rgba(0, 0, 225, 0.7)';
   }
 };
@@ -17,7 +16,7 @@ var getMaxItem = function (times) {
       max = time;
     }
   }
-    return max;
+  return max;
 };
 
 window.renderStatistics = function (ctx, names, times) {
