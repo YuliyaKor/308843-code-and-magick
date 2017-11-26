@@ -1,5 +1,5 @@
 'use strict';
-var getRandom = function(min, max) {
+var getRandom = function (min, max) {
   return Math.floor(Math.random() * (max - min)) + min;
 };
 document.querySelector('.setup').classList.remove('hidden');
@@ -16,7 +16,7 @@ var getWizards = function (count) {
       name: names[getRandom(0, names.length)] + surnames[getRandom(0, surnames.length)],
       coatColor: coatColors[getRandom(0, coatColors.length)],
       eyesColor: eyesColors[getRandom(0, eyesColors.length)]
-    })
+    });
   }
   return wizards;
 };
