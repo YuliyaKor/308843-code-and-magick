@@ -2,7 +2,7 @@
 var getRandom = function (min, max) {
   return Math.floor(Math.random() * (max - min)) + min;
 };
-//document.querySelector('.setup').classList.remove('hidden');
+// document.querySelector('.setup').classList.remove('hidden');
 
 var names = ['Иван', 'Хуан Себастьян', 'Мария', 'Кристоф', 'Виктор', 'Юлия', 'Люпита', 'Вашингтон'];
 var surnames = [' да Марья', ' Верон', ' Мирабелла', ' Вальц', ' Онопко', ' Топольницкая', ' Нионго', ' Ирвинг'];
@@ -49,27 +49,27 @@ var setupOpen = document.querySelector('.setup-open');
 // окно
 var setup = document.querySelector('.setup');
 // функция закрыть окно клавишей Esc
-var popupEscHendler = function(evt) {
+var popupEscHendler = function (evt) {
   if (evt.keyCode === ESC_KEYCODE) {
     popupCloseHendler();
   }
 };
 // функция открыть окно
-var popupOpenHendler = function() {
+var popupOpenHendler = function () {
   setup.classList.remove('hidden');
   document.addEventListener('keydown', popupEscHendler);
 };
 // функция закрыть окно
-var popupCloseHendler = function() {
+var popupCloseHendler = function () {
   setup.classList.add('hidden');
   document.removeEventListener('keydown', popupEscHendler);
 };
 // событие нажатие кнопки вызов окна и закрытие клавишей
-setupOpen.addEventListener('click', function() {
+setupOpen.addEventListener('click', function () {
   popupOpenHendler();
 });
 // событие открыть окно клавишей
-setupOpen.addEventListener('keydown', function(evt) {
+setupOpen.addEventListener('keydown', function (evt) {
   if (evt.keyCode === ENTER_KEYCODE) {
     popupOpenHendler();
   }
@@ -77,26 +77,26 @@ setupOpen.addEventListener('keydown', function(evt) {
 // кнопка закрыть внутри окна
 var setupClose = setup.querySelector('.setup-close');
 // событие нажатие кнопки закрытие окна
-setupClose.addEventListener('click', function() {
+setupClose.addEventListener('click', function () {
   popupCloseHendler();
 });
 // событие закрыть окно клавишей
-setupClose.addEventListener('keydown', function(evt) {
+setupClose.addEventListener('keydown', function (evt) {
   if (evt.keyCode === ENTER_KEYCODE) {
     popupCloseHendler();
   }
 });
 // поле ввода имени персонажа
 var userNameInput = setup.querySelector('.setup-user-name');
-//удаление события если активно поле ввода имени персонажа
-userNameInput.addEventListener('focus', function() {
+// удаление события если активно поле ввода имени персонажа
+userNameInput.addEventListener('focus', function () {
   document.removeEventListener('keydown', popupEscHendler);
 });
-userNameInput.addEventListener('blur', function() {
+userNameInput.addEventListener('blur', function () {
   document.addEventListener('keydown', popupEscHendler);
 });
 // событие показывать ошибки заполнения формы
-userNameInput.addEventListener('invalid', function (evt) {
+userNameInput.addEventListener('invalid', function () {
   if (userNameInput.validity.tooShort) {
     userNameInput.setCustomValidity('Имя должно состоять минимум из 2-х символов');
   } else if (userNameInput.validity.tooLong) {
@@ -108,17 +108,17 @@ userNameInput.addEventListener('invalid', function (evt) {
   }
 });
 // изменение цвета мантии
-var wizardCoat = document.querySelector('.setup-wizard .wizard-coat')
-wizardCoat.addEventListener('click', function() {
+var wizardCoat = document.querySelector('.setup-wizard .wizard-coat');
+wizardCoat.addEventListener('click', function () {
   wizardCoat.style.fill = coatColors[getRandom(0, coatColors.length)];
 });
 // изменение цвета глаз
-var wizardEyes = document.querySelector('.setup-wizard .wizard-eyes')
-wizardEyes.addEventListener('click', function() {
+var wizardEyes = document.querySelector('.setup-wizard .wizard-eyes');
+wizardEyes.addEventListener('click', function () {
   wizardEyes.style.fill = eyesColors[getRandom(0, eyesColors.length)];
 });
 // изменение цвета фаербола
-var wizardFireball = document.querySelector('.setup-fireball-wrap')
-wizardFireball.addEventListener('click', function() {
+var wizardFireball = document.querySelector('.setup-fireball-wrap');
+wizardFireball.addEventListener('click', function () {
   wizardFireball.style.backgroundColor = fireballColors[getRandom(0, fireballColors.length)];
 });
