@@ -49,51 +49,51 @@ var setupOpen = document.querySelector('.setup-open');
 // окно
 var setup = document.querySelector('.setup');
 // функция закрыть окно клавишей Esc
-var popupEscHendler = function (evt) {
+var popupEscHandler = function (evt) {
   if (evt.keyCode === ESC_KEYCODE) {
-    popupCloseHendler();
+    popupCloseHandler();
   }
 };
 // функция открыть окно
-var popupOpenHendler = function () {
+var popupOpenHandler = function () {
   setup.classList.remove('hidden');
-  document.addEventListener('keydown', popupEscHendler);
+  document.addEventListener('keydown', popupEscHandler);
 };
 // функция закрыть окно
-var popupCloseHendler = function () {
+var popupCloseHandler = function () {
   setup.classList.add('hidden');
-  document.removeEventListener('keydown', popupEscHendler);
+  document.removeEventListener('keydown', popupEscHandler);
 };
 // событие нажатие кнопки вызов окна и закрытие клавишей
 setupOpen.addEventListener('click', function () {
-  popupOpenHendler();
+  popupOpenHandler();
 });
 // событие открыть окно клавишей
 setupOpen.addEventListener('keydown', function (evt) {
   if (evt.keyCode === ENTER_KEYCODE) {
-    popupOpenHendler();
+    popupOpenHandler();
   }
 });
 // кнопка закрыть внутри окна
 var setupClose = setup.querySelector('.setup-close');
 // событие нажатие кнопки закрытие окна
 setupClose.addEventListener('click', function () {
-  popupCloseHendler();
+  popupCloseHandler();
 });
 // событие закрыть окно клавишей
 setupClose.addEventListener('keydown', function (evt) {
   if (evt.keyCode === ENTER_KEYCODE) {
-    popupCloseHendler();
+    popupCloseHandler();
   }
 });
 // поле ввода имени персонажа
 var userNameInput = setup.querySelector('.setup-user-name');
 // удаление события если активно поле ввода имени персонажа
 userNameInput.addEventListener('focus', function () {
-  document.removeEventListener('keydown', popupEscHendler);
+  document.removeEventListener('keydown', popupEscHandler);
 });
 userNameInput.addEventListener('blur', function () {
-  document.addEventListener('keydown', popupEscHendler);
+  document.addEventListener('keydown', popupEscHandler);
 });
 // событие показывать ошибки заполнения формы
 userNameInput.addEventListener('invalid', function () {
